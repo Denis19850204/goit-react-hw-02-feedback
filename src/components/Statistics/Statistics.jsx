@@ -63,7 +63,7 @@ class Statistics extends React.Component {
           bad={this.handlerBtnBad}
         />
         <SecondTitle text={'Statistics'} />
-        {this.state.visible && (
+        {this.state.visible ? (
           <StatisticsList
             good={this.state.good}
             neutral={this.state.neutral}
@@ -71,7 +71,7 @@ class Statistics extends React.Component {
             total={this.countTotalFeedback()}
             percentage={this.countPositiveFeedbackPercentage()}
           />
-        )}
+        ):("There is no feedback")}
       </div>
     );
   }
