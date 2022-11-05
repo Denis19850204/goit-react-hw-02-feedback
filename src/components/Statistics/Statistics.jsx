@@ -1,7 +1,8 @@
-import { Button } from 'components/Button/Button';
+// import { Button } from 'components/Button/Button';
 import { SecondTitle } from '../SecondTitle/SecondTitle';
 import { StatisticsList } from './StatisticsList';
 import React from 'react';
+import Button from 'components/Feedback/feedBack';
 
 class Statistics extends React.Component {
   state = {
@@ -10,6 +11,13 @@ class Statistics extends React.Component {
     bad: 0,
     visible: false,
   };
+
+  handlerBtn = (options) => {
+    this.setState(prevState => ({
+      [options]:prevState[options]+1,        
+    }))
+    this.setState({ visible: true });
+  }
 
   handlerBtnGood = () => {
     this.setState(prevState => {
@@ -52,22 +60,25 @@ class Statistics extends React.Component {
   };
 
   render() {
+    const { good, neutral, bad, } = this.state
     return (
       <div>
         <Button
-          btn1={'Good'}
-          btn2={'Neutral'}
-          btn3={'Bad'}
-          good={this.handlerBtnGood}
-          neutral={this.handlerBtnNeutral}
-          bad={this.handlerBtnBad}
+          options={['good', 'neutral', 'bad']}
+          onLeaveFeedback={this.handlerBtn}
+          // btn1={'Good'}
+          // btn2={'Neutral'}
+          // btn3={'Bad'}
+          // good={this.handlerBtnGood}
+          // neutral={this.handlerBtnNeutral}
+          // bad={this.handlerBtnBad}
         />
         <SecondTitle text={'Statistics'} />
         {this.state.visible ? (
           <StatisticsList
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
+            good={good}
+            neutral={neutral}
+            bad={bad}
             total={this.countTotalFeedback()}
             percentage={this.countPositiveFeedbackPercentage()}
           />
