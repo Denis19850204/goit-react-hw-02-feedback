@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './FeedBack.module.css';
 
-function FeedBack({ options, onLeaveFeedback }) {
+export default function FeedBack({ options, onLeaveFeedback }) {
   return (
     <div className="btnList">
       {options.map(option => (
@@ -19,7 +19,7 @@ function FeedBack({ options, onLeaveFeedback }) {
     </div>
   );
 }
-export default FeedBack;
+// export default FeedBack;
 
 FeedBack.propTypes = {
   options: PropTypes.array,
