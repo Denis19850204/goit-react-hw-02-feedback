@@ -1,8 +1,7 @@
 import { SecondTitle } from '../SecondTitle/SecondTitle';
 import { StatisticsList } from './StatisticsList';
 import React from 'react';
-
-import FeedBack from 'components/FeedBack/FeedBack';
+import FeedBackData from 'components/FeedBack/FeedBack';
 
 class Statistics extends React.Component {
   state = {
@@ -36,7 +35,7 @@ class Statistics extends React.Component {
     const { good, neutral, bad } = this.state;
     return (
       <div>
-        <FeedBack
+        <FeedBackData
           options={['good', 'neutral', 'bad']}
           onLeaveFeedback={this.handlerBtn}
         />

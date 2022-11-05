@@ -19,7 +19,7 @@ export default function FeedBack({ options, onLeaveFeedback }) {
     </div>
   );
 }
-// export default FeedBack;
+
 
 FeedBack.propTypes = {
   options: PropTypes.array,
