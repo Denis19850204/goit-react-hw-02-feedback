@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import css from './FeedBack.module.css'
 
 export default function FeedBack({ options, onLeaveFeedback }) {
