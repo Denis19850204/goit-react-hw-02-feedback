@@ -1,8 +1,8 @@
-// import { Button } from 'components/Button/Button';
 import { SecondTitle } from '../SecondTitle/SecondTitle';
 import { StatisticsList } from './StatisticsList';
 import React from 'react';
-import Button from 'components/Feedback/feedBack';
+
+import FeedBack from 'components/Feedback/FeedBack';
 
 class Statistics extends React.Component {
   state = {
@@ -12,38 +12,11 @@ class Statistics extends React.Component {
     visible: false,
   };
 
-  handlerBtn = (options) => {
+  handlerBtn = options => {
     this.setState(prevState => ({
-      [options]:prevState[options]+1,        
-    }))
+      [options]: prevState[options] + 1,
+    }));
     this.setState({ visible: true });
-  }
-
-  handlerBtnGood = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-        visible: true,
-      };
-    });
-  };
-
-  handlerBtnNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-        visible: true,
-      };
-    });
-  };
-
-  handlerBtnBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
-        visible: true,
-      };
-    });
   };
 
   countTotalFeedback = () => {
@@ -60,18 +33,12 @@ class Statistics extends React.Component {
   };
 
   render() {
-    const { good, neutral, bad, } = this.state
+    const { good, neutral, bad } = this.state;
     return (
       <div>
-        <Button
+        <FeedBack
           options={['good', 'neutral', 'bad']}
           onLeaveFeedback={this.handlerBtn}
-          // btn1={'Good'}
-          // btn2={'Neutral'}
-          // btn3={'Bad'}
-          // good={this.handlerBtnGood}
-          // neutral={this.handlerBtnNeutral}
-          // bad={this.handlerBtnBad}
         />
         <SecondTitle text={'Statistics'} />
         {this.state.visible ? (
@@ -82,7 +49,9 @@ class Statistics extends React.Component {
             total={this.countTotalFeedback()}
             percentage={this.countPositiveFeedbackPercentage()}
           />
-        ):("There is no feedback")}
+        ) : (
+          'There is no feedback'
+        )}
       </div>
     );
   }
