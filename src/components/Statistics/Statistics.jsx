@@ -1,6 +1,7 @@
 import { SecondTitle } from '../SecondTitle/SecondTitle';
 import { StatisticsList } from './StatisticsList';
 import React from 'react';
+// import FeedBack from 'components/FeedBack/FeedBack';
 import FeedBack from 'components/FeedBack/FeedBack';
 
 class Statistics extends React.Component {
