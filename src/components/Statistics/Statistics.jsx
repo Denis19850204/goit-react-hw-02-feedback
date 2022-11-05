@@ -3,7 +3,7 @@ import { StatisticsList } from './StatisticsList';
 import React from 'react';
 
 
-import FeedBack from 'components/Feedback/FeedBack';
+import FeedBack from 'components/FeedBack/FeedBack';
 
 class Statistics extends React.Component {
   state = {
