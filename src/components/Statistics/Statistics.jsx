@@ -8,19 +8,20 @@ class Statistics extends React.Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    visible: false,
+    // visible: false,
   };
 
   handlerBtn = options => {
     this.setState(prevState => ({
       [options]: prevState[options] + 1,
     }));
-    this.setState({ visible: true });
+    // this.setState({ visible: true });
   };
 
   countTotalFeedback = () => {
     const { good, neutral, bad } = this.state;
     let total = good + neutral + bad;
+
     return total;
   };
 
@@ -36,11 +37,12 @@ class Statistics extends React.Component {
     return (
       <div>
         <FeedBack
-          options={['good', 'neutral', 'bad']}
+          // options={['good', 'neutral', 'bad']}
+          options={Object.keys(this.state)}
           onLeaveFeedback={this.handlerBtn}
         />
         <SecondTitle text={'Statistics'} />
-        {this.state.visible ? (
+        {this.countTotalFeedback() ? (
           <StatisticsList
             good={good}
             neutral={neutral}
@@ -49,7 +51,7 @@ class Statistics extends React.Component {
             percentage={this.countPositiveFeedbackPercentage()}
           />
         ) : (
-          'There is no feedback'
+          <p>There is no feedback</p>
         )}
       </div>
     );
