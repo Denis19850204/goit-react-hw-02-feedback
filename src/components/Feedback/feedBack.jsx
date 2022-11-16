@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import css from './Feedback.module.css'
 
-export default function FeedBack({ options, onLeaveFeedback }) {
+export default function Feedback({ options, onLeaveFeedback }) {
   return (
+
+
     <div className="btnList">
       {options.map(option => (
         <button
@@ -21,7 +23,7 @@ export default function FeedBack({ options, onLeaveFeedback }) {
 }
 
 
-FeedBack.propTypes = {
+Feedback.propTypes = {
   options: PropTypes.array,
   onLeaveFeedback: PropTypes.func,
 };
